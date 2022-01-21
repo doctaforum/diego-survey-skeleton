@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="shortcut icon" href="#">
+            <link rel="stylesheet" href="{{ asset('libraries/MDB/css/mdb.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('libraries/FontAwesome/css/all.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('libraries/GDPR/dist/style.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('libraries/jQuery/css/datatables.min.css') }}">
+
+            {# Custom styles #}
+            <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}"/>
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+            <script src="{{ asset('libraries/MDB/js/mdb.min.js') }}"></script>
+            <script src="{{ asset('libraries/FontAwesome/js/all.js') }}"></script>
+            <script src="{{ asset('libraries/SweetAlert/sweetalert.all.min.js') }}"></script>
+            <script src="{{ asset('libraries/GDPR/dist/script.js') }}"></script>
+            <script src="{{ asset('libraries/GDPR/src/langs/es.js') }}"></script>
+            <script src="{{ asset('libraries/jQuery/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('libraries/jQuery/js/datatables.min.js') }}"></script>
+        {% endblock %}
+
+        {% block cssInLine %}{% endblock %}
+
+        {% block javascriptInLine %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

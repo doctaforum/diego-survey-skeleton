@@ -1,0 +1,69 @@
+{% extends 'admin_layout.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block javascriptInLine %}
+    <script>
+        $(document).ready( function () {
+            $(".edit-button").on("click", function(e) {
+                e.preventDefault();
+                document.getElementsByClassName("input-field").style.display = "block";
+            })
+        });
+    </script>
+{% endblock %}
+
+{% block section %}
+    <a href="{{ path('admin_index') }}"><i class="fas fa-arrow-circle-left fa-3x"></i></a>
+
+    <div class="text-center">
+        <div class="profile-container__photo mb-4" style="background-image: url({{ asset('media/admins/' ~ admin.image) }});"></div>
+        <p>{{ admin.name }} {{ admin.firstname }}</p>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <form action="{{ path('admin_edit', {id: admin.id}) }}" method="post" class="edit-form">
+                <tr>
+                    <th>Email</th>
+                    <td {% if edit %}class="d-none"{% endif %}>{{ admin.email }}</td>
+                    <td {% if edit == false %}class="d-none"{% endif %} class="input-field"><input type="text" name="email" id="email" value="{{ admin.email }}"></td>
+                </tr>
+                <tr>
+                    <th>Roles</th>
+                    <td>{{ admin.roles ? admin.roles|json_encode : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td {% if edit %}class="d-none"{% endif %}>{{ admin.name }}</td>
+                    <td {% if edit == false %}class="d-none"{% endif %} class="input-field"><input type="text" name="name" id="name" value="{{ admin.name }}"></td>
+                </tr>
+                <tr>
+                    <th>Firstname</th>
+                    <td {% if edit %}class="d-none"{% endif %}>{{ admin.firstname }}</td>
+                    <td {% if edit == false %}class="d-none"{% endif %} class="input-field"><input type="text" name="firstname" id="firstname" value="{{ admin.firstname }}"></td>
+                </tr>
+                <tr>
+                    <th>Creation_date</th>
+                    <td >{{ admin.creationDate ? admin.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Active</th>
+                    <td>{{ admin.isActive ? 'Yes' : 'No' }}</td>
+                </tr>
+
+                {% if edit == true %}
+                <tr>
+                    <td><input type="submit" value="Enviar" class="btn btn-success"></td>
+                </tr>
+                {% endif %}
+            </form>
+        </tbody>
+    </table>
+
+    {% if edit == false %}
+    <a href="" class="edit-button">edit</a>
+    {% endif %}
+
+    {# {{ include('admin/_delete_form.html.twig') }} #}
+{% endblock %}

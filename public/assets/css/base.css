@@ -1,0 +1,102 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.header {
+    background-color: #009845;;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
+.header__logo {
+    width: 250px;
+    height: 50px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header__profile-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: chartreuse 2px solid;
+}
+
+.navbar {
+    box-shadow: none;
+}
+
+.profile-container__photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: chartreuse 2px solid;
+    margin: auto;
+}
+
+.aside {
+    width: 500px;
+    height: 100vh;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    right: 0%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: #757575 -2px -2px 3px;
+}
+
+.aside::before {
+    content: "";
+    background-color: black;
+    width: 500px;
+    height: 100vh;
+}
+
+.form-container {
+    height: 100vh;
+}
+
+.login-form {
+    height: 290px;
+    box-shadow: -12px 13px 5px -7px rgba(194, 194, 194, 1);
+    border-radius: 7px;
+    width: 350px;
+    background-color: #ffffff;
+}
+
+.title-container {
+    background-color: #009845;
+    border-radius: 7px 7px 0px 0px;
+    padding: 10px;
+}
+
+.form-body {
+    height: 235px;
+}
+
+.form-login-button {
+    background-color: #009845;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 0px 0px 7px 7px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8em;
+}
+
+#admins_table td {
+    padding: 3px !important;
+}
+
+.delete-user-button {
+    background-color: inherit;
+    border: none;
+}
