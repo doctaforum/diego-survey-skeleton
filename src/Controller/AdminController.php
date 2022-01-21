@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Admin;
 use App\Form\AdminType;
+use App\Helper\FileHelper;
 use App\Repository\AdminRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,6 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/admin")
@@ -35,16 +37,27 @@ class AdminController extends AbstractController
     /**
      * @Route("/new", name="admin_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $encoder): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $encoder, SluggerInterface $slugger): Response
     {
         $admin = new Admin();
         $form = $this->createForm(AdminType::class, $admin);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $image = $form->get('image')->getData();
+
             $admin->setRoles(["ROLE_ADMIN"]);
             $admin->setCreationDate(new DateTime());
             $admin->setIsActive(true);
+
+            $fileHelper = new FileHelper();
+            $newImageName = $fileHelper->loadImage($image, $slugger);
+
+            if (!isset($image)) {
+                $admin->setImage("user-default.png");
+            } else {
+                $admin->setImage($newImageName);
+            }
 
             $encodedPass = $encoder->encodePassword($admin, $form['password']->getData());
             $admin->setPassword($encodedPass);
@@ -75,15 +88,21 @@ class AdminController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_edit", methods={"POST"})
      */
-    public function edit(Request $request, Admin $admin, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Admin $admin, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $email = $request->get("email");
         $name = $request->get("name");
         $firstname = $request->get("firstname");
+        $image = $request->files->get("image");
+
+        $fileHelper = new FileHelper();
+
+        $newImageName = $fileHelper->loadImage($image, $slugger);
 
         $admin->setEmail($email);
         $admin->setName($name);
         $admin->setFirstname($firstname);
+        $admin->setImage($newImageName);
 
         $entityManager->persist($admin);
         $entityManager->flush();
@@ -102,7 +121,7 @@ class AdminController extends AbstractController
         $entityManager->persist($admin);
         $entityManager->flush();
 
-        return $this->redirectToRoute('admin_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirect($request->headers->get('referer'));
     }
 
 
@@ -116,7 +135,8 @@ class AdminController extends AbstractController
         $entityManager->persist($admin);
         $entityManager->flush();
 
-        return $this->redirectToRoute('admin_index', [], Response::HTTP_SEE_OTHER);
+
+        return $this->redirect($request->headers->get('referer'));
     }
 
 

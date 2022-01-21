@@ -7,9 +7,14 @@
     
     <script>
         $(document).ready( function () {
-            $('#admins_table').DataTable();
-
-            $('.paginate_button.active').css("background-color","green");
+            $('#admin-panel-table').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ resultados",
+                    "info":       "Mostrando _START_ a _END_ de _TOTAL_ resultados",
+                    "infoEmpty":  "Mostrando 0 a 0 de 0 resultados",
+                    "search":     "Buscar:",
+                }
+            });
         });
     </script>
 {% endblock %}
@@ -22,7 +27,7 @@
         </a>
     </div>
 
-    <table class="table text-center" id="admins_table">
+    <table class="table text-center" id="admin-panel-table">
         <thead class="text-white" style="background-color: #009845;">
             <tr>
                 <th>Nombre</th>
@@ -40,7 +45,7 @@
                 <td><a href="{{ path('admin_show', {'id': admin.id}) }}">{{ admin.name }} {{ admin.firstname }}</a></td>
                 <td>{{ admin.email }}</td>
                 <td>{{ admin.roles ? admin.roles|json_encode : '' }}</td>
-                <td>{{ admin.creationDate ? admin.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ admin.creationDate ? admin.creationDate|date('d-m-Y / H:i') : '' }}</td>
                 <td class="h5"><a href="{{ path('admin_show', {'id': admin.id, edit: true}) }}"><i class="fas fa-pencil-alt text-warning mr-3"></i></a></td>
                 {% if admin.isActive %}
                 <td class="h5"><a href="{{ path('admin_disable', {'id': admin.id}) }}"><i class="fas fa-user-slash"></i></a></td>

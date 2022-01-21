@@ -92,11 +92,34 @@ body {
     font-size: 0.8em;
 }
 
-#admins_table td {
+#admin-panel-table td {
     padding: 3px !important;
+}
+
+li.active>a {
+    background-color: #009845 !important;
+}
+
+.dataTables_length>label {
+    display: flex !important;
+    width: 100%;
+}
+
+#admin-panel-table tr:nth-child(even) {
+    background-color: #eeeeee;
 }
 
 .delete-user-button {
     background-color: inherit;
     border: none;
+}
+
+.form-row-container {
+    width: 50%;
+    margin: auto;
+}
+
+.show-table {
+    width: 50%;
+    margin: auto;
 }
