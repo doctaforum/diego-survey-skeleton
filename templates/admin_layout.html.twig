@@ -11,15 +11,15 @@
     {{ parent() }}
     
     <header class="header">
-        <div class="d-flex justify-content-between align-items-center px-5">
+        <div class="d-flex justify-content-between align-items-start px-5">
             {% block header %}
-            <div>
-                <img src="{{ asset('media/website/doctaforum-logo-white.png') }}" class="img-fluid">
-                <div class="header__navbar d-inline-block mx-4">{% include "components/admin/admin_menu.html.twig" %}</div>
+            <div class="pt-2">
+                <div class="header__logo" style="background-image: url({{ asset('media/website/doctaforum-logo-white.png') }});"></div>
             </div>
-            <div class="text-center text-light d-flex justify-content-between align-items-center">
+            <div class="header__navbar mx-4" style="width: 70%;">{% include "components/admin/admin_menu.html.twig" %}</div>
+            <div class="text-center text-light d-flex justify-content-end align-items-center pt-2 w-100">
                 <!-- <div class="header__profile-photo" style="background-image: url({{ asset('media/admins/user-default.png') }});"></div> -->
-                <a href="{{ path('admin_show', {'id': app.user.id}) }}"><p class="mb-0 px-5 text-white">{{ app.user.name }} {{ app.user.firstname }}</p></a>
+                <a href="{{ path('admin_show', {'id': app.user.id}) }}"><p class="mb-0 px-3 text-white">{{ app.user.name }} {{ app.user.firstname }}</p></a>
                 <a href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt fa-2x text-white"></i></a>
             </div>
             {% endblock %}

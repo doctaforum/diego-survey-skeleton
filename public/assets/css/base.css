@@ -4,16 +4,15 @@ body {
 
 .header {
     background-color: #009845;;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 600;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .header__logo {
-    width: 250px;
-    height: 50px;
+    width: 165px;
+    height: 35px;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 .header__profile-photo {
@@ -28,6 +27,7 @@ body {
 
 .navbar {
     box-shadow: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .profile-container__photo {
