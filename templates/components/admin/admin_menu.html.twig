@@ -7,8 +7,8 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li id="navbar__home" class="nav-item active">
-          <a id="navbar__home" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item active">
+          <a id="navbar__home" class="nav-link" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>
         </li>
         {% if is_granted('ROLE_SUPER_ADMIN') %}
         <li class="nav-item">

@@ -1,0 +1,16 @@
+{% extends 'admin_layout.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block javascriptInLine %}
+    {{ parent() }}
+    <script>
+        $(document).ready( function () {
+            document.getElementById("navbar__home").classList.add("active");
+        });
+    </script>
+{% endblock %}
+
+{% block section %}
+    <h1>Home</h1>
+{% endblock %}
