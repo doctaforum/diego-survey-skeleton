@@ -9,7 +9,7 @@
 
 {% block body %}
     {{ parent() }}
-    
+
     <header class="header">
         <div class="d-flex justify-content-between align-items-start px-5">
             {% block header %}
@@ -26,13 +26,22 @@
         </div>
     </header>
 
-    <section>
+    <section class="pb-3">
         <div class="container my-5">
         {% block section %}{% endblock %}
         </div>
     </section>
 
-    <footer>
-    {% block footer %}{% endblock %}
+    <footer class="footer py-1 mt-5">
+        {% block footer %}
+        <div class="d-flex justify-content-center align-items-center">
+            <div><a href="#open-cookies" data-mdb-toggle="modal" data-mdb-target="#cookies-modal">Política de cookies</a></div>
+            <div class="px-2">|</div>
+            <div><a href="#open-legal_notice" data-mdb-toggle="modal" data-mdb-target="#legal_notice-modal">Aviso legal</a></div>
+        </div>
+        {% endblock %}
     </footer>
+
+    {% include "components/legal_notice.html.twig" %}
+    {% include "components/cookies.html.twig" %}
 {% endblock %}

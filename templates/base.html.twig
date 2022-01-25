@@ -19,12 +19,14 @@
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
-            <script src="{{ asset('libraries/MDB/js/mdb.min.js') }}"></script>
             <script src="{{ asset('libraries/jQuery/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('libraries/MDB/js/mdb.min.js') }}"></script>
             <script src="{{ asset('libraries/jQuery/js/datatables.min.js') }}"></script>
             <script src="{{ asset('libraries/jQuery/js/datatables-select.min.js') }}"></script>
             <script src="{{ asset('libraries/FontAwesome/js/all.js') }}"></script>
             <script src="{{ asset('libraries/SweetAlert/sweetalert.all.min.js') }}"></script>
+            <script src="{{ asset('libraries/GDPR/dist/script.js') }}"></script>
+            <script src="{{ asset('libraries/GDPR/src/langs/es.js') }}"></script>
         {% endblock %}
 
         {% block cssInLine %}{% endblock %}
@@ -33,5 +35,6 @@
     </head>
     <body>
         {% block body %}{% endblock %}
+        {% include "components/cookies_consent.html" %}
     </body>
 </html>

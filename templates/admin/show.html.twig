@@ -1,13 +1,21 @@
-{% extends 'admin_layout.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}Admin{% endblock %}
 
 {% block section %}
     <a href="{{ path('admin_index') }}"><i class="fas fa-arrow-left fa-3x text-success"></i></a>
 
-    <div class="text-center">
+    <div class="text-center mb-4">
         <div class="profile-container__photo mb-4" style="background-image: url({{ asset('media/admins/' ~ admin.image) }});"></div>
-        <p>{{ admin.name }} {{ admin.firstname }}</p>
+        <p class="m-0">{{ admin.name }} {{ admin.firstname }}</p>
+
+        {% if edit == false %}
+            <a href="{{ path('admin_show', {'id': admin.id, edit: true}) }}" class="edit-button">Editar</a>
+        {% endif %}
+
+        {% if edit %}
+            <a href="{{ path('admin_show', {'id': admin.id}) }}" class="edit-button">Ver información usuario</a>
+        {% endif %}
     </div>
 
     <table class="table show-table">
@@ -61,14 +69,6 @@
             </form>
         </tbody>
     </table>
-
-    {% if edit == false %}
-    <a href="{{ path('admin_show', {'id': admin.id, edit: true}) }}" class="edit-button">Editar</a>
-    {% endif %}
-
-    {% if edit %}
-    <a href="{{ path('admin_show', {'id': admin.id}) }}" class="edit-button">Ver información usuario</a>
-    {% endif %}
 
     {# {{ include('admin/_delete_form.html.twig') }} #}
 {% endblock %}

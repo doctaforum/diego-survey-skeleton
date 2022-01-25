@@ -43,6 +43,7 @@ class AdminRepository extends ServiceEntityRepository implements PasswordUpgrade
     public function findAllOnArray()
     {
         return $this->createQueryBuilder('a')
+            ->select(['a.firstname', 'a.name', 'a.email', 'a.roles', 'a.creation_date', 'a.is_active'])
             ->getQuery()
             ->getArrayResult()
         ;

@@ -39,12 +39,12 @@ class AdminType extends AbstractType
             ->add('firstname', TextType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Firstname', 
+                    'placeholder' => 'Primer apellido', 
                     'class' => 'form-control my-3'
                 ]
             ])
             ->add('image', FileType::class, [
-                'label' => false,
+                'label' => 'Imagen',
                 'required' => false, 
                 'attr' => [
                     'class' => 'form-control my-3'
