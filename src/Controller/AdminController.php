@@ -45,6 +45,21 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $image = $form->get('image')->getData();
+            $pass = $form->get('password')->getData();
+            $repeatPass = $request->get("repeat-password");
+
+            if (!is_null($pass)) {
+                if ($pass != $repeatPass) { 
+                    return $this->render('admin/new.html.twig', [
+                        'formError' => "Las contraseñas no coinciden",
+                        'form' => $form->createView()
+                    ]);
+                }
+    
+                $encodedPass = $encoder->encodePassword($admin, $pass);
+    
+                $admin->setPassword($encodedPass);
+            }
 
             $admin->setRoles(["ROLE_ADMIN"]);
             $admin->setCreationDate(new DateTime());
@@ -88,9 +103,12 @@ class AdminController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_edit", methods={"POST"})
      */
-    public function edit(Request $request, Admin $admin, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    public function edit(Request $request, Admin $admin, EntityManagerInterface $entityManager, SluggerInterface $slugger, UserPasswordEncoderInterface $encoder): Response
     {
         $email = $request->get("email");
+        $lastPass = $request->get("last-password");
+        $newPass = $request->get("new-password");
+        $repeatNewPass = $request->get("repeat-password");
         $name = $request->get("name");
         $firstname = $request->get("firstname");
         $image = $request->files->get("image");
@@ -98,6 +116,34 @@ class AdminController extends AbstractController
         $fileHelper = new FileHelper();
 
         $newImageName = $fileHelper->loadImage($image, $slugger);
+
+        if (!is_null($newPass)) {
+            if (!$encoder->isPasswordValid($admin, $lastPass)) { 
+                return $this->render('admin/show.html.twig', [
+                    'admin' => $admin,
+                    'edit' => true,
+                    'formError' => "La contraseña antigua es errónea",
+                ]);
+            }
+            if ($newPass != $repeatNewPass) { 
+                return $this->render('admin/show.html.twig', [
+                    'admin' => $admin,
+                    'edit' => true,
+                    'formError' => "Las contraseñas no coinciden"
+                ]);
+            }
+            if ($encoder->isPasswordValid($admin, $repeatNewPass)) {
+                return $this->render('admin/show.html.twig', [
+                    'admin' => $admin,
+                    'edit' => true,
+                    'formError' => "Las contraseñas antigua y la nueva no pueden ser iguales"
+                ]);
+            }
+
+            $encodedPass = $encoder->encodePassword($admin, $newPass);
+
+            $admin->setPassword($encodedPass);
+        }
 
         $admin->setEmail($email);
         $admin->setName($name);

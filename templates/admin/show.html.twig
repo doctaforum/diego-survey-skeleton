@@ -18,6 +18,12 @@
         {% endif %}
     </div>
 
+    {% if formError is defined %}
+    <div class="py-2 px-4 bg-danger text-white my-5" style="border-left: 5px #A80000 solid; font-size: 0.8em;">
+        <p class="m-0">{{ formError }}</p>
+    </div>
+    {% endif %}
+
     <table class="table show-table">
         <tbody>
             <form action="{{ path('admin_edit', {id: admin.id}) }}" method="post" class="edit-form" enctype="multipart/form-data">
@@ -31,6 +37,20 @@
                     <td {% if edit %}class="d-none"{% endif %} class="text-end">{{ admin.email }}</td>
                     <td {% if edit == false %}class="d-none"{% endif %} class="input-field text-end"><input type="text" name="email" id="email" value="{{ admin.email }}"></td>
                 </tr>
+                {% if edit %}
+                <tr>
+                    <th>Contraseña antigua</th>
+                    <td class="input-field text-end"><input type="password" name="last-password" id="last-password"></td>
+                </tr>
+                <tr>
+                    <th>Contraseña nueva</th>
+                    <td class="input-field text-end"><input type="password" name="new-password" id="new-password"></td>
+                </tr>
+                <tr>
+                    <th>Repetir contraseña nueva</th>
+                    <td class="input-field text-end"><input type="password" name="repeat-password" id="repeat-password"></td>
+                </tr>
+                {% endif %}
                 <tr>
                     <th>Roles</th>
                     <td class="text-end">{{ admin.roles ? admin.roles|json_encode : '' }}</td>
