@@ -1,140 +1,66 @@
-html {
-    min-height: 100%;
-    position: relative;
+:root {
+    --main-color: #454D97;
+    --main-text_color: #ffffff;
+    --topic-color: #2CACC4;
+    --topic-text_color: #ffffff;
+
+    --submit-hover: #2e3574;
 }
 
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin: 0;
-    margin-bottom: 40px;
-}
-
-.header {
-    background-color: #009845;;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.header__logo {
-    width: 165px;
-    height: 35px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.header__profile-photo {
-    width: 70px;
-    height: 70px;
-    border-radius: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: chartreuse 2px solid;
-}
-
-.navbar {
-    box-shadow: none;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.profile-container__photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: chartreuse 2px solid;
-    margin: auto;
-}
-
-.aside {
-    width: 500px;
-    height: 100vh;
-    position: absolute;
-    position: fixed;
-    top: 0;
-    right: 0%;
-    z-index: 1000;
-    background-color: white;
-    box-shadow: #757575 -2px -2px 3px;
-}
-
-.aside::before {
-    content: "";
-    background-color: black;
-    width: 500px;
-    height: 100vh;
+p {
+    margin: 0 !important;
 }
 
 .form-container {
-    height: 100vh;
+    box-shadow: #F7CAEB 0px 0px 3px 2px;
+    padding: 50px;
 }
 
-.login-form {
-    height: 290px;
-    box-shadow: -12px 13px 5px -7px rgba(194, 194, 194, 1);
-    border-radius: 7px;
-    width: 350px;
-    background-color: #ffffff;
+.form-survey input[type='radio'] {
+    border: 2px solid var(--main-color) !important;
 }
 
-.title-container {
-    background-color: #009845;
-    border-radius: 7px 7px 0px 0px;
-    padding: 10px;
+.form-survey input[type='submit'] {
+    background-color: var(--main-color);
+    color: var(--main-text_color);
 }
 
-.form-body {
-    height: 235px;
+.form-survey input[type='submit']:hover {
+    background-color: var(--submit-hover);
 }
 
-.form-login-button {
-    background-color: #009845;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 0px 0px 7px 7px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 0.8em;
-}
-
-#admin-panel-table td {
-    padding: 3px !important;
-}
-
-li.active>a {
-    background-color: #009845 !important;
-}
-
-.dataTables_length>label {
-    display: flex !important;
+.form-survey textarea {
     width: 100%;
+    height: 180px;
+    margin: 10px 0;
 }
 
-#admin-panel-table tr:nth-child(even) {
-    background-color: #eeeeee;
+.title {
+    border-radius: 5px;
+    background-color: var(--main-color);
+    color: var(--main-text_color);
+    margin: 20px 0;
 }
 
-.delete-user-button {
-    background-color: inherit;
-    border: none;
+.survey-title {
+    border-radius: 5px;
+    background-color: var(--main-color);
+    color: var(--main-text_color);
+    margin: 10px 0;
+    display: inline-block;
 }
 
-.form-row-container {
-    width: 50%;
-    margin: auto;
+.topic {
+    border-radius: 5px;
+    background-color: var(--topic-color);
+    color: var(--topic-text_color);
+    margin: 10px 0;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
-.show-table {
-    width: 50%;
-    margin: auto;
-}
-
-.footer {
-    width: 100%;
-    background-color: #1C2331;
-    color: white;
-    position: absolute;
-    bottom: 0;
+.radio-column {
+    margin: 0 7px;
+    font-size: 0.7em;
+    font-weight: 600;
 }

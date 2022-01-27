@@ -1,0 +1,428 @@
+{% extends 'statistics/base.html.twig' %}
+
+{% block javascriptInLine %}
+    {{ parent() }}
+
+    <script>
+        let generalsurveyQ1average = {{ generalsurveyQ1average|json_encode}};
+        let generalsurveyQ2average = {{ generalsurveyQ2average|json_encode}};
+        let generalsurveyQ3average = {{ generalsurveyQ3average|json_encode}};
+        let generalsurveyQ4average = {{ generalsurveyQ4average|json_encode}};
+        let generalsurveyQ5average = {{ generalsurveyQ5average|json_encode}};
+        let generalsurveyQ6average = {{ generalsurveyQ6average|json_encode}};
+        let generalsurveyQ7average = {{ generalsurveyQ7average|json_encode}};
+
+        let survey1Q1average = {{ survey1Q1average|json_encode}};
+        let survey1Q2average = {{ survey1Q2average|json_encode}};
+        let survey1Q3average = {{ survey1Q3average|json_encode}};
+        let survey1Q4average = {{ survey1Q4average|json_encode}};
+
+        let survey2Q1average = {{ survey2Q1average|json_encode}};
+        let survey2Q2average = {{ survey2Q2average|json_encode}};
+        let survey2Q3average = {{ survey2Q3average|json_encode}};
+        let survey2Q4average = {{ survey2Q4average|json_encode}};
+        let survey2Q5average = {{ survey2Q5average|json_encode}};
+        let survey2Q6average = {{ survey2Q6average|json_encode}};
+
+        let survey3Q1average = {{ survey3Q1average|json_encode}};
+        let survey3Q2average = {{ survey3Q2average|json_encode}};
+        let survey3Q3average = {{ survey3Q3average|json_encode}};
+        let survey3Q4average = {{ survey3Q4average|json_encode}};
+        let survey3Q5average = {{ survey3Q5average|json_encode}};
+
+        // Survey 1
+        document.addEventListener('DOMContentLoaded', function () {
+            const chart = Highcharts.chart('survey1-chart1', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    categories: ['Q1', 'Q2', 'Q3', 'Q4'],
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Media puntuation'
+                    },
+                    max: 5,
+                },
+                series: [{
+                    name: '',
+                    data: [
+                        survey1Q1average, 
+                        survey1Q2average, 
+                        survey1Q3average, 
+                        survey1Q4average, 
+                    ]
+                }]
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const chart = Highcharts.chart('survey1-chart2', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    categories: [
+                        'Q1',
+                        'Q2',
+                        'Q3',
+                        'Q4',
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Rainfall (mm)'
+                    },
+                    max: 5,
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: '',
+                    data: [
+                        survey1Q1average, 
+                        survey1Q2average, 
+                        survey1Q3average, 
+                        survey1Q4average, 
+                    ]
+                }]
+            });
+        });
+
+        // Survey 2
+        document.addEventListener('DOMContentLoaded', function () {
+            const chart = Highcharts.chart('survey2-chart1', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    categories: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6'],
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Media puntuation'
+                    },
+                    max: 5,
+                },
+                series: [{
+                    name: '',
+                    data: [
+                        survey2Q1average, 
+                        survey2Q2average, 
+                        survey2Q3average, 
+                        survey2Q4average, 
+                        survey2Q5average, 
+                        survey2Q6average, 
+                    ]
+                }]
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const chart = Highcharts.chart('survey2-chart2', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    categories: [
+                        'Q1',
+                        'Q2',
+                        'Q3',
+                        'Q4',
+                        'Q5',
+                        'Q6'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Rainfall (mm)'
+                    },
+                    max: 5,
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: '',
+                    data: [
+                        survey2Q1average, 
+                        survey2Q2average, 
+                        survey2Q3average, 
+                        survey2Q4average, 
+                        survey2Q5average, 
+                        survey2Q6average, 
+                    ]
+                }]
+            });
+        });
+
+        // Survey 3
+        document.addEventListener('DOMContentLoaded', function () {
+            const chart = Highcharts.chart('survey3-chart1', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    categories: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'],
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Media puntuation'
+                    },
+                    max: 5,
+                },
+                series: [{
+                    name: '',
+                    data: [
+                        survey3Q1average, 
+                        survey3Q2average, 
+                        survey3Q3average, 
+                        survey3Q4average, 
+                        survey3Q5average, 
+                    ]
+                }]
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const chart = Highcharts.chart('survey3-chart2', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    categories: [
+                        'Q1',
+                        'Q2',
+                        'Q3',
+                        'Q4',
+                        'Q5'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Rainfall (mm)'
+                    },
+                    max: 5,
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: '',
+                    data: [
+                        survey3Q1average, 
+                        survey3Q2average, 
+                        survey3Q3average, 
+                        survey3Q4average, 
+                        survey3Q5average 
+                    ]
+                }]
+            });
+        });
+
+
+        // General survey
+        document.addEventListener('DOMContentLoaded', function () {
+            const chart = Highcharts.chart('generalSurvey-chart1', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    categories: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7'],
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Media puntuation'
+                    },
+                    max: 5,
+                },
+                series: [{
+                    name: '',
+                    data: [
+                        generalsurveyQ1average, 
+                        generalsurveyQ2average, 
+                        generalsurveyQ3average, 
+                        generalsurveyQ4average, 
+                        generalsurveyQ5average,
+                        generalsurveyQ6average,
+                        generalsurveyQ7average,
+                    ]
+                }]
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const chart = Highcharts.chart('generalSurvey-chart2', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    categories: ['Q1','Q2','Q3','Q4','Q5', 'Q6', 'Q7'],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Rainfall (mm)'
+                    },
+                    max: 5,
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: '',
+                    data: [
+                        generalsurveyQ1average, 
+                        generalsurveyQ2average, 
+                        generalsurveyQ3average, 
+                        generalsurveyQ4average, 
+                        generalsurveyQ5average,
+                        generalsurveyQ6average,
+                        generalsurveyQ7average,
+                    ]
+                }]
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block section %}
+    <h1>Estadísticas</h1>
+
+    <div class="survey-statistics">
+        <h5>Evaluación General</h5>
+        <div class="row survey-statistics">
+            <div class="col-12 col-lg-6" id="generalSurvey-chart1" style="height:400px;"></div>
+            <div class="col-12 col-lg-6" id="generalSurvey-chart2" style="height:400px;"></div>
+        </div>
+    </div>
+
+    <div class="survey-statistics">
+        <h5>Mesa 1: Actualización en El Manejo Del Cáncer De Vejiga No Músculo-Invasivo. Aproximación “vintage” frente a nuevos abordajes </h5>
+        <div class="row survey-statistics">
+            <div class="col-12 col-lg-6" id="survey1-chart1" style="height:400px;"></div>
+            <div class="col-12 col-lg-6" id="survey1-chart2" style="height:400px;"></div>
+        </div>
+    </div>
+
+    <div class="survey-statistics">
+        <h5>Mesa 2: CÁNCER DE VEJIGA LOCALIZADO. ENFERMEDAD MÚSCULO-INFILTRANTE</h5>
+        <div class="row survey-statistics">
+            <div class="col-12 col-lg-6" id="survey2-chart1" style="height:400px;"></div>
+            <div class="col-12 col-lg-6" id="survey2-chart2" style="height:400px;"></div>
+        </div>
+    </div>
+
+    <div class="survey-statistics">
+        <h5>MESA 3: CÁNCER UROTELIAL AVANZADO</h5>
+        <div class="row">
+            <div class="col-12 col-lg-6" id="survey3-chart1" style="height:400px;"></div>
+            <div class="col-12 col-lg-6" id="survey3-chart2" style="height:400px;"></div>
+        </div>
+    </div>
+{% endblock %}

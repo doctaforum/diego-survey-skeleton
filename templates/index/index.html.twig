@@ -1,0 +1,217 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block section %}
+    <div class="container-fluid">
+        <div class="container form-container">
+            <form action="{{ path('handle_survey') }}" method="POST" class="form-survey">
+                {% include "components/website/title.html.twig" with {'title': 'Evaluación de la Reunión - Miércoles 24 de Noviembre'} %}
+
+                {# <-------- FIRST SURVEY --------> #}
+                {% include "components/website/survey_title.html.twig" with {'title': 'CÁNCER UROTELIAL'} %}
+
+                {# FIRST TOPIC #}
+                {% include "components/website/topic.html.twig" with {'topic': 'Mesa 1: Actualización en El Manejo Del Cáncer De Vejiga No Músculo-Invasivo. Aproximación “vintage” frente a nuevos abordajes'} %}
+
+                <p class="h5">Moderadores</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Miguel Ángel Climent Durán', 
+                    'question': 'survey1-q1',
+                    'isRequired': 'false',
+                }%}
+
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Alfredo Rodríguez Antolín', 
+                    'question': 'survey1-q2',
+                    'isRequired': 'false',
+                }%}
+
+                <hr>
+
+                <p class="h5">Aspectos quirúrgicos y manejo clásico del tratamiento de la enfermedad no músculo-invasiva. Cistectomía radical ¿a quién y por qué?</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Juan Ignacio Martínez Salamanca', 
+                    'question': 'survey1-q3',
+                    'isRequired': 'false',
+                }%}
+
+                <hr>
+
+                <p class="h5">Tratamiento sistémico del cáncer de vejiga no músculo-invasivo. Papel de las nuevas terapias</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Javier Puente Vázquez', 
+                    'question': 'survey1-q4',
+                    'isRequired': 'false',
+                }%}
+
+                <div style="height: 20px;"></div>
+
+                {# SECOND TOPIC #}
+                {% include "components/website/topic.html.twig" with {'topic': 'Mesa 2: CÁNCER DE VEJIGA LOCALIZADO. ENFERMEDAD MÚSCULO-INFILTRANTE'} %}
+
+                <p class="h5">Moderadores</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Montserrat Domènech Santasusana ', 
+                    'question': 'survey2-q1',
+                    'isRequired': 'false',
+                }%}
+
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Albert Font Pous ', 
+                    'question': 'survey2-q2',
+                    'isRequired': 'false',
+                }%}
+
+                <hr>
+
+                <p class="h5">Evolución de la cirugía en el tratamiento radical del cáncer de vejiga. ¿Sigue siendo la cistectomía el estándar de tratamiento?</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'José Rubio Briones', 
+                    'question': 'survey2-q3',
+                    'isRequired': 'false',
+                }%}
+
+                <hr>
+
+                <p class="h5">Actualización del tratamiento con radioterapia en preservación vesical</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Xavier Maldonado Pijoan', 
+                    'question': 'survey2-q4',
+                    'isRequired': 'false',
+                }%}
+
+                <hr>
+
+                <p class="h5">Nuevas opciones de tratamiento sistémico en preservación vesical</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Xavier García del Muro', 
+                    'question': 'survey2-q5',
+                    'isRequired': 'false',
+                }%}
+
+                <hr>
+
+                <p class="h5">Terapia perioperatoria en el cáncer urotelial con inmunoterapia</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Rafael Morales Barrera', 
+                    'question': 'survey2-q6',
+                    'isRequired': 'false',
+                }%}
+
+                <div style="height: 20px;"></div>
+
+                {# THIRD TOPIC #}
+                {% include "components/website/topic.html.twig" with {'topic': 'MESA 3: CÁNCER UROTELIAL AVANZADO'} %}
+
+                <p class="h5">Moderadores</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Sergio Vázquez Estévez ', 
+                    'question': 'survey3-q1',
+                    'isRequired': 'false',
+                }%}
+
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Daniel Castellano Gauna', 
+                    'question': 'survey3-q2',
+                    'isRequired': 'false',
+                }%}
+
+                <hr>
+
+                <p class="h5">Integración de la inmunoterapia en la secuencia global del tratamiento del cáncer urotelial metastásico</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Ovidio Fernández Calvo', 
+                    'question': 'survey3-q3',
+                    'isRequired': 'false',
+                }%}
+
+                <hr>
+
+                <p class="h5">¿Cómo integrar las estrategias recientemente incorporadas al tratamiento?</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Begoña Pérez-Valderrama', 
+                    'question': 'survey3-q4',
+                    'isRequired': 'false',
+                }%}
+
+                <hr>
+
+                <p class="h5">Nuevas dianas terapéuticas y fármacos en investigación</p>
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Joaquim Bellmunt Molins', 
+                    'question': 'survey3-q5',
+                    'isRequired': 'false',
+                }%}
+
+
+                {# <-------- GENERAL SURVEY --------> #}
+                {% include "components/website/title.html.twig" with {'title': 'Evaluación General - Miércoles 24 de Noviembre '} %}
+
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Argumentos', 
+                    'question': 'general-q1',
+                    'isRequired': 'true',
+                }%}
+
+                <hr>
+
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Discusión', 
+                    'question': 'general-q2',
+                    'isRequired': 'true',
+                }%}
+
+                <hr>
+
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Expectativas de la reunión satisfechas', 
+                    'question': 'general-q3',
+                    'isRequired': 'true',
+                }%}
+
+                <hr>
+
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Dirección', 
+                    'question': 'general-q4',
+                    'isRequired': 'true',
+                }%}
+
+                <hr>
+
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Secretaría técnica', 
+                    'question': 'general-q5',
+                    'isRequired': 'true',
+                }%}
+
+                <hr>
+
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Atención recibida', 
+                    'question': 'general-q6',
+                    'isRequired': 'true',
+                }%}
+
+                <hr>
+
+                {% include "components/website/form_row.html.twig" with {
+                    'questionItem': 'Sede', 
+                    'question': 'general-q7',
+                    'isRequired': 'true',
+                }%}
+
+                {% include "components/website/text_box.html.twig" with {
+                    'questionItem': 'Utilice el siguiente campo si desea realizar alguna observación, sugerencia o comentario', 
+                    'question': 'general-textarea',
+                    'isRequired': 'false',
+                }%}
+
+                <div class="w-100 d-flex justify-content-center my-5">
+                    <input type="submit" value="Enviar encuesta" class="btn">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

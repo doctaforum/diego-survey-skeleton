@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    
+    <header class="header">
+        <img src="{{ asset('media/website/TEST_header.png') }}" alt="header" class="img-fluid">
+    </header>
+
+    <section>
+        {% block section %}{% endblock %}
+    </section>
+
+    <footer class="footer py-1 mt-5">
+        {% block footer %}
+        <div class="d-flex justify-content-center align-items-center">
+            <div><a href="#open-cookies" data-mdb-toggle="modal" data-mdb-target="#cookies-modal">Política de cookies</a></div>
+            <div class="px-2">|</div>
+            <div><a href="#open-legal_notice" data-mdb-toggle="modal" data-mdb-target="#legal_notice-modal">Aviso legal</a></div>
+        </div>
+        {% endblock %}
+    </footer>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "admin_layout.html.twig" %}
+
+{% block title %}Encuestas{% endblock %}
+
+{% block javascriptInLine %}
+    {{ parent() }}
+    <script>
+        $(document).ready( function () {
+            document.getElementById("navbar__surveys").classList.add("active");
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "admin_layout.html.twig" %}
+
+{% block title %}Estadísticas{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('libraries/HighCharts/highcharts.js') }}"></script>
+    <script src="{{ asset('libraries/HighCharts/modules/exporting.js') }}"></script>
+    <script src="{{ asset('libraries/HighCharts/modules/export-data.js') }}"></script>
+    <script src="{{ asset('libraries/HighCharts/modules/accessibility.js') }}"></script>
+{% endblock %}
+
+{% block javascriptInLine %}
+    {{ parent() }}
+    <script>
+        $(document).ready( function () {
+            document.getElementById("navbar__statistics").classList.add("active");
+        });
+    </script>
+{% endblock %}

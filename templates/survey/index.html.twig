@@ -1,0 +1,183 @@
+{% extends 'survey/base.html.twig' %}
+
+{% block javascriptInAdmin %}
+    {{ parent() }}
+    
+    <script>
+        $(document).ready( function () {
+            $('#survey1-table').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ resultados",
+                    "info":       "Mostrando _START_ a _END_ de _TOTAL_ resultados",
+                    "infoEmpty":  "Mostrando 0 a 0 de 0 resultados",
+                    "search":     "Buscar:",
+                    "paginate": {
+                        "first":      "Primero",
+                        "last":       "Último",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
+                    }
+                }
+            });
+        });
+
+        $(document).ready( function () {
+            $('#survey2-table').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ resultados",
+                    "info":       "Mostrando _START_ a _END_ de _TOTAL_ resultados",
+                    "infoEmpty":  "Mostrando 0 a 0 de 0 resultados",
+                    "search":     "Buscar:",
+                    "paginate": {
+                        "first":      "Primero",
+                        "last":       "Último",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
+                    }
+                }
+            });
+        });
+
+        $(document).ready( function () {
+            $('#survey3-table').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ resultados",
+                    "info":       "Mostrando _START_ a _END_ de _TOTAL_ resultados",
+                    "infoEmpty":  "Mostrando 0 a 0 de 0 resultados",
+                    "search":     "Buscar:",
+                    "paginate": {
+                        "first":      "Primero",
+                        "last":       "Último",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
+                    }
+                }
+            });
+        });
+
+        $(document).ready( function () {
+            $('#generalsurvey-table').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ resultados",
+                    "info":       "Mostrando _START_ a _END_ de _TOTAL_ resultados",
+                    "infoEmpty":  "Mostrando 0 a 0 de 0 resultados",
+                    "search":     "Buscar:",
+                    "paginate": {
+                        "first":      "Primero",
+                        "last":       "Último",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block section %}
+    <h1>Encuestas</h1>
+
+    <h5>Mesa 1: Actualización en El Manejo Del Cáncer De Vejiga No Músculo-Invasivo. Aproximación “vintage” frente a nuevos abordajes </h5>
+    <table class="table text-center mb-5" id="survey1-table">
+        <thead class="text-white" style="background-color: #009845;">
+            <tr>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th>Q4</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for record in survey1 %}
+            <tr>
+                <td>{{ record.q1 }}</td>
+                <td>{{ record.q2 }}</td>
+                <td>{{ record.q3 }}</td>
+                <td>{{ record.q4 }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">No se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h5>Mesa 2: CÁNCER DE VEJIGA LOCALIZADO. ENFERMEDAD MÚSCULO-INFILTRANTE</h5>
+    <table class="table text-center mb-5" id="survey2-table">
+        <thead class="text-white" style="background-color: #009845;">
+            <tr>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th>Q4</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for record in survey1 %}
+            <tr>
+                <td>{{ record.q1 }}</td>
+                <td>{{ record.q2 }}</td>
+                <td>{{ record.q3 }}</td>
+                <td>{{ record.q4 }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">No se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h5>MESA 3: CÁNCER UROTELIAL AVANZADO</h5>
+    <table class="table text-center mb-5" id="survey3-table">
+        <thead class="text-white" style="background-color: #009845;">
+            <tr>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th>Q4</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for record in survey1 %}
+            <tr>
+                <td>{{ record.q1 }}</td>
+                <td>{{ record.q2 }}</td>
+                <td>{{ record.q3 }}</td>
+                <td>{{ record.q4 }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">No se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h5>Evaluación General</h5>
+    <table class="table text-center mb-5" id="generalsurvey-table">
+        <thead class="text-white" style="background-color: #009845;">
+            <tr>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th>Q4</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for record in survey1 %}
+            <tr>
+                <td>{{ record.q1 }}</td>
+                <td>{{ record.q2 }}</td>
+                <td>{{ record.q3 }}</td>
+                <td>{{ record.q4 }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">No se encontraron registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
